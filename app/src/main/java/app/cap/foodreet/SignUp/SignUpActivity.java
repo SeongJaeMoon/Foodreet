@@ -95,7 +95,9 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }
     }
+    @Override
     public void onBackPressed(){
+        super.onBackPressed();
         startActivity(new Intent(this, SignInActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         finish();
     }

@@ -169,6 +169,7 @@ public class SignInActivity extends AppCompatActivity {
      * 사용자의 상태를 알아 보기 위해 me API 호출을 한다.
      */
     protected void requestMe() {
+
         UserManagement.requestMe(new MeResponseCallback() {
             @Override
             public void onFailure(ErrorResult errorResult) {
