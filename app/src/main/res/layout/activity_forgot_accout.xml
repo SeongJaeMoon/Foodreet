@@ -40,7 +40,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:text="@string/email"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="14sp" />
 
         <android.support.design.widget.TextInputLayout

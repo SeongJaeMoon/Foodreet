@@ -45,7 +45,8 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:2.3.0'
     compile 'com.firebaseui:firebase-ui-auth:2.3.0'
     compile 'com.firebaseui:firebase-ui-storage:2.3.0'
-    compile files('src/main/libs/libDaumMapAndroid.jar')
+    compile 'com.android.volley:volley:1.0.0'
+    compile files('libs/libDaumMapAndroid.jar')
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

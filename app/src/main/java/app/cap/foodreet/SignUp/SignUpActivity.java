@@ -69,20 +69,23 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Foodreet foodreet = (Foodreet)getApplicationContext();
-                        String user_id = mFirebaseAuth.getCurrentUser().getUid();
-                        DatabaseReference userDbRef = mDatabaseRef.child(user_id);
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        String pushId = databaseReference.child("users").push().getKey();
+                        DatabaseReference userDbRef = mDatabaseRef.child(pushId);
                         if (userDbRef.child("email").equals(email)) {
                             Toast.makeText(getApplicationContext(), getString(R.string.registerd), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         } else {
                             if(foodreet.getRoleType().equals(mUser)&&foodreet.getRoleType()!=null) {
                                 userDbRef.child("email").setValue(email);
-                                userDbRef.child("u_id").setValue(user_id);
+                                userDbRef.child("u_id").setValue(pushId);
                                 userDbRef.child("role").setValue(mUser);
                             }else if(foodreet.getRoleType().equals(mOwner)&&foodreet.getRoleType()!=null){
                                 userDbRef.child("email").setValue(email);
-                                userDbRef.child("u_id").setValue(user_id);
+                                userDbRef.child("u_id").setValue(pushId);
                                 userDbRef.child("role").setValue(mOwner);
+                            }else{
+                                Toast.makeText(getApplicationContext(), getString(R.string.default_error),Toast.LENGTH_SHORT).show();
                             }
                             progressBar.setVisibility(View.GONE);
                             Intent intent = new Intent(SignUpActivity.this, MainActivity.class);

@@ -15,13 +15,14 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        final Foodreet foodreet = (Foodreet)getApplicationContext();
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences mPref = getSharedPreferences("isFirst", MODE_PRIVATE);
                 Boolean bfirst = mPref.getBoolean("isFirst", true);
-                if (bfirst){
+                if (bfirst||foodreet.getRoleType()==null){
                     SharedPreferences.Editor editor = mPref.edit();
                     editor.putBoolean("isFirst", false).apply();
                     //처음 접속인 경우 선택

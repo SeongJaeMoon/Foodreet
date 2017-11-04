@@ -16,7 +16,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
-    private final List<Drawable>mFragmentImageList = new ArrayList<>();
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -29,10 +28,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mFragmentList.size();
     }
-    public void addFragment(Fragment fragment, String title, Drawable icon) {
+    public void addFragment(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
-        mFragmentImageList.add(icon);
     }
     @Override
     public CharSequence getPageTitle(int position) {
