@@ -28,7 +28,7 @@ import app.cap.foodreet.Main2Activity;
 import app.cap.foodreet.MainActivity;
 import app.cap.foodreet.R;
 import app.cap.foodreet.SignIn.SignInActivity;
-
+import app.cap.foodreet.Adapter.BaseFragment;
 /**
  * Created by clear on 2017-10-30.
  * 프로필용
@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment{
     private FirebaseAuth mFirebaseAuth;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
-
+    private
     View view;
 
     public ProfileFragment(){
@@ -59,6 +59,7 @@ public class ProfileFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // protected abstract View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.profile_fragment, container, false);
         btnLogout = (Button)view.findViewById(R.id.xbtnLogout);

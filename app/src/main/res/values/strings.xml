@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">푸드릿</string>
     <string name="kakao_app_key">79b2d08b28694b7d4eabbc5242c912a1</string>
+    <string name="naver_app_key">JePqBXHWY_AMPm3tVajo</string>
     <string name="welcome">환영합니다.</string>
     <string name="join_owner">영업자로 시작하기</string>
     <string name="join_user">사용자로 시작하기</string>
@@ -28,5 +29,8 @@
     <string name="profile">프로필</string>
     <string name="map">지도</string>
     <string name="store">즐겨찾기</string>
+    <string name="setting">설정</string>
     <string name="validation_server_domain">https://foodreet-e783e.firebaseio.com</string>
+    <string name="action_settings">목록 보기</string>
+    <string name="section_format">목록: %1$s</string>
 </resources>

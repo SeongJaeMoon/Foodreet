@@ -47,6 +47,9 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-storage:2.3.0'
     compile 'com.android.volley:volley:1.0.0'
     compile files('libs/libDaumMapAndroid.jar')
+    compile files('libs/naveridlogin_android_sdk_4.2.0.aar')
+    compile 'com.github.bumptech.glide:glide:4.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

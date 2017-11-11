@@ -69,7 +69,8 @@ public class SignInActivity extends AppCompatActivity {
     private TextView btnNewAccount, btnForgotAccount;
     private EditText etEmail, etPassword;
     private Button btnLogIn;
-    private LoginButton btnKakao;
+    private Button btnKakao;
+    private Button btnNaver;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private DatabaseReference mDatabaseRef;
@@ -88,7 +89,8 @@ public class SignInActivity extends AppCompatActivity {
         etEmail = (EditText)findViewById(R.id.xetEmail);
         etPassword = (EditText)findViewById(R.id.xetPassword);
         btnLogIn = (Button)findViewById(R.id.xbtnLogIn);
-        btnKakao = (LoginButton)findViewById(R.id.xbtnKakaoSignIn);
+        btnKakao = (Button)findViewById(R.id.xbtnKakaoSignIn);
+        btnNaver = (Button)findViewById(R.id.xbtnNaverSingin);
         btnNewAccount = (TextView)findViewById(R.id.xbtnNewAccount);
         btnForgotAccount = (TextView)findViewById(R.id.xbtnForgotAccount);
         progressBar = (ProgressBar)findViewById(R.id.progressbar);
@@ -139,10 +141,10 @@ public class SignInActivity extends AppCompatActivity {
                         if (dataSnapshot.hasChild(user_id)) {
                             String role = dataSnapshot.child("role").getValue(String.class);
                             if (role != null && role.equals(mUser)) {
-                                startActivity(new Intent(SignInActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                startActivity(new Intent(SignInActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                                 finish();
                             } else if (role != null && role.equals(mOwner)) {
-                                startActivity(new Intent(SignInActivity.this, Main2Activity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                startActivity(new Intent(SignInActivity.this, Main2Activity.class).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                                 finish();
                             } else {
                                 Toast.makeText(getApplicationContext(), getString(R.string.default_error), Toast.LENGTH_SHORT).show();
@@ -324,9 +326,18 @@ public class SignInActivity extends AppCompatActivity {
         updateUI();
     }
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
+    protected void onDestroy() {super.onDestroy();}
+    @Override
+    protected void onStop(){
+        super.onStop();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+    @Override
+    protected void onRestart(){
+        super.onRestart();
     }
 
     private void getAppKeyHash() {
